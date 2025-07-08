@@ -1,135 +1,109 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>校長推薦函範本</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        /* 使用 Noto Sans TC 作為中文字體的優先選擇 */
-        body {
-            font-family: 'Inter', 'Noto Sans TC', sans-serif;
-        }
-        /* 美化捲軸樣式 */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #1f2937; /* 軌道顏色 */
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #4b5563; /* 滾動條顏色 */
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #6b7280; /* 滑鼠懸停時的顏色 */
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>校長推薦函範本</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #E0E0E0;
+      font-family: "Noto Sans TC", sans-serif;
+      padding: 2rem;
+    }
+    select {
+      background-color: #1E1E1E;
+      color: #E0E0E0;
+      padding: 0.5rem;
+      font-size: 1rem;
+      border: 1px solid #555;
+      border-radius: 4px;
+    }
+    #content {
+      margin-top: 2rem;
+      white-space: pre-wrap;
+      line-height: 1.6;
+    }
+    a {
+      color: #90CAF9;
+    }
+  </style>
 </head>
-<body class="bg-gray-900 text-gray-200 antialiased">
+<body>
+  <h1>校長推薦函範本選擇</h1>
+  <label for="templateSelect">請選擇範本：</label>
+  <select id="templateSelect">
+    <option value="default" selected>請選擇範本</option>
+    <option value="template1">第一種範本</option>
+    <option value="template2">第二種範本</option>
+    <option value="download">下載空白範本</option>
+  </select>
 
-    <div class="container mx-auto px-4 py-8 md:py-12">
-        
-        <!-- 頁面標題 -->
-        <header class="text-center mb-8">
-            <h1 class="text-3xl md:text-4xl font-bold text-white">校長推薦函範本</h1>
-            <h2 class="text-xl md:text-2xl font-medium text-gray-300 mt-2">臺灣大學醫學系</h2>
-            <p class="text-gray-400 mt-4">請從下方選單選擇要預覽的推薦函範本。</p>
-        </header>
+  <div id="content">
+    師長推薦書：推薦學校應盡力以中文或英文敘明學校特色、整體學生之學業表現、所推薦學生具備之特質與才能，及其為何適合進入申請就讀之學系，以利學系能更深入瞭解。
+  </div>
 
-        <!-- 下拉式選單 -->
-        <div class="max-w-md mx-auto mb-8">
-            <label for="template-selector" class="block mb-2 text-sm font-medium text-gray-400">選擇範本:</label>
-            <select id="template-selector" class="bg-gray-800 border border-gray-600 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                <option value="" selected>請選擇範本</option>
-                <option value="template1">第一種範本</option>
-                <option value="template2">第二種範本</option>
-            </select>
-        </div>
+  <script>
+    const templateSelect = document.getElementById('templateSelect');
+    const contentDiv = document.getElementById('content');
 
-        <!-- 推薦函內容顯示區域 -->
-        <main id="content-display" class="max-w-4xl mx-auto bg-gray-800 rounded-lg shadow-xl p-6 md:p-10 min-h-[300px]">
-            <!-- 內容將由 JavaScript 動態載入 -->
-        </main>
+    const template1 = `國立臺灣大學醫學系招生委員會 主任、各位評審教授，您們好：
 
-        <!-- 頁尾 -->
-        <footer class="text-center mt-12 text-gray-500 text-sm">
-            <p>&copy; 2024 推薦函產生器. All Rights Reserved.</p>
-        </footer>
-    </div>
+本人是越南胡志明市臺灣學校的校長，在此以最誠摯的心，向貴系推薦本人給予高度評價的傑出學生—王可靜同學。可靜在我校求學期間，不僅學業成績名列前茅，其展現的堅毅品格與跨文化領導才能，更令全校師生印象深刻。
 
-    <script>
-        // 儲存兩份推薦函的內容
-        const templates = {
-            template1: `
-                <h2 class="text-2xl font-bold text-white mb-6 border-b border-gray-600 pb-3">國立臺灣大學醫學系-校長推薦函-第一種範本</h2>
-                <div class="space-y-4 text-gray-300 leading-relaxed">
-                    <p>國立臺灣大學醫學系招生委員會 主任、各位評審教授，您們好：</p>
-                    <p>本人是越南胡志明市臺灣學校的校長，在此以最誠摯的心，向貴系推薦本人給予高度評價的傑出學生—王可靜同學。可靜在我校求學期間，不僅學業成績名列前茅，其展現的堅毅品格與跨文化領導才能，更令全校師生印象深刻。</p>
-                    <p>可靜的學業表現堪稱我校學生的表率，她秉持著「沒人撐傘就要學會奔跑」的信念 ，以高度的自律與時間管理能力，努力克服學習環境的限制。在校期間，她的成績始終維持在類組排名第一、全校排名第二的頂尖水準 ，並在高一、高二共計12次段考中，獲得9次校排第一的殊榮 。其生物、化學、物理等數理學科的成績尤其突出 ，英語能力亦透過TOEIC 890分的金色證書得到證明 ，展現了她邁向頂尖醫學研究的扎實學術基礎。</p>
-                    <p>在學術之外，我對可靜在科學探究上的熱情與執行力尤為讚賞。學校過往無參加校外科展的經驗 ，但是可靜主動克服重重困難，終於取得全國第一名的佳績，更為我校開啟了舉辦科學探究競賽的先河 。她的研究主題從泛科學領域，一步步深化至醫學相關議題，高二時更以「蛋白質結構預測與阿茲海默症虛擬抑制劑開發」為題進行自主學習與研究 ，其知識深度與廣度已遠超同儕。這份鍥而不捨的科研精神，正是未來醫學研究者不可或缺的特質。</p>
-                    <p>可靜的才能不僅體現在學術上，她「研究型(I)」與「社會型(S)」兼備的人格特質 ，更體現在她對社會的關懷與服務上。她擔任本校「社會服務社」社長 ，主動為台灣關愛基金會及流浪動物之家籌辦慈善募款活動 ；並利用返台期間，在貴校附設醫院擔任學生志工，累積了內科、神經外科與兒童加護病房共68小時的服務時數 。她更期許未來能運用自己流利的中、越、英三語能力 ，為台灣的病患與越南新住民服務 ，這份源自她自身成長背景的同理心與胸懷，令人動容。</p>
-                    <p>綜合可靜的學業成就、科研熱忱與服務精神，我深信她已具備成為一名優秀醫師所需的理性思維與人文關懷。她生長於越南的特殊背景 ，賦予了她獨特的跨文化視野；而她面對挑戰從不退縮的毅力，更證明了她有足夠的抗壓力去應對未來醫學之路的重重考驗。她不僅嚮往貴系頂尖的教學資源 ，其特質也與貴系追求「人文」與「科學」的核心價值高度契合 。</p>
-                    <p>在此，我毫不猶豫地向您們推薦王可靜同學。她是我校的驕傲，也必定能為貴系帶來正向的貢獻，並在貴系的培育下，實現她守護生命的遠大志向。</p>
-                    <div class="mt-8 pt-4 text-right">
-                        <p>敬頌</p>
-                        <p>道祺</p>
-                        <br>
-                        <p>越南胡志明市臺灣學校 校長</p>
-                        <p>莫恒中 敬上</p>
-                        <br>
-                        <p>中華民國114年8月8日</p>
-                    </div>
-                </div>
-            `,
-            template2: `
-                <h2 class="text-2xl font-bold text-white mb-6 border-b border-gray-600 pb-3">國立臺灣大學醫學系-校長推薦函-第二種範本</h2>
-                <div class="space-y-4 text-gray-300 leading-relaxed">
-                    <p>主任、各位評審教授 您們好：</p>
-                    <p>本人為越南胡志明市台灣學校校長，王可靜同學在本校就讀期間，本人親自見證其在學業、研究與服務學習等多方面之傑出表現。</p>
-                    <p>可靜自小在越南成長，卻始終保持高度的學習自律與目標導向，面對海外僑校資源有限的挑戰，她善用線上學習資源與AI工具，自主補足各學科內容，從未因環境而自限。她在校內外各項科學研究競賽與小論文比賽屢獲佳績，其中更曾獲得全國科學探究競賽全國第一名，以及旺宏科學獎、自主學習成果發表等多項殊榮，展現出極強的探究精神與科學素養。</p>
-                    <p>在學業成績方面，可靜歷年段考多次榮獲年級第一，學期平均成績皆維持類排第一名的頂尖水準，理、化、生物與語文能力俱佳，尤以英語、越南語與中文三語並用，並取得英檢金色證書，展現其語言能力與國際視野。她亦具備極佳的時間管理與自我規劃能力，能兼顧課業、研究與志工服務，充分體現了自主學習與高效執行力。</p>
-                    <p>除學術能力外，可靜在人際互動與服務學習方面同樣表現突出。她長期擔任班級與社團幹部，主動策劃校內外公益活動，並利用返台期間積極於台大醫院內科、神經外科及兒科擔任學生志工，累積近百小時服務時數，從中培養出關懷他人、體察病患需求之人文素養。她總是以謙遜踏實的態度面對挑戰，並樂於協助同儕，是師長與同學一致肯定的學習典範。</p>
-                    <p>在與可靜面談與觀察中，我深信她擁有堅定的醫學志向與強烈的使命感，並且結合理性思辨與人文關懷，正與臺灣大學醫學系所強調之「科學專業與人文精神並重」核心價值高度契合。我深信，可靜未來定能在臺大醫學系豐富的教學資源與多元學術環境中，如魚得水，更進一步實踐其以專業回饋社會、服務病患的志業。</p>
-                    <p>謹以最誠摯之心，推薦王可靜同學申請貴系，懇請各位教授給予其進一步實現理想之機會。</p>
-                    <div class="mt-8 pt-4 text-right">
-                        <p>謹此推薦，敬祝</p>
-                        <p>道祺</p>
-                        <br>
-                        <p>越南胡志明市台灣學校 校長</p>
-                        <p>莫恒中 敬上</p>
-                        <br>
-                        <p>中華民國 114 年 9 月 8 日</p>
-                    </div>
-                </div>
-            `
-        };
+可靜的學業表現堪稱我校學生的表率，她秉持著「沒人撐傘就要學會奔跑」的信念 ，以高度的自律與時間管理能力，努力克服學習環境的限制。在校期間，她的成績始終維持在類組排名第一、全校排名第二的頂尖水準 ，並在高一、高二共計12次段考中，獲得9次校排第一的殊榮 。其生物、化學、物理等數理學科的成績尤其突出 ，英語能力亦透過TOEIC 890分的金色證書得到證明 ，展現了她邁向頂尖醫學研究的扎實學術基礎。
 
-        // 獲取 DOM 元素
-        const selector = document.getElementById('template-selector');
-        const display = document.getElementById('content-display');
+在學術之外，我對可靜在科學探究上的熱情與執行力尤為讚賞。學校過往無參加校外科展的經驗 ，但是可靜主動克服重重困難，終於取得全國第一名的佳績，更為我校開啟了舉辦科學探究競賽的先河 。她的研究主題從泛科學領域，一步步深化至醫學相關議題，高二時更以「蛋白質結構預測與阿茲海默症虛擬抑制劑開發」為題進行自主學習與研究 ，其知識深度與廣度已遠超同儕。這份鍥而不捨的科研精神，正是未來醫學研究者不可或缺的特質。
 
-        // 定義一個函數來更新內容
-        function updateContent() {
-            const selectedValue = selector.value;
-            // 檢查 selectedValue 是否存在於 templates 物件中
-            if (selectedValue in templates) {
-                display.innerHTML = templates[selectedValue];
-            } else {
-                // 如果沒有選擇，則清空內容
-                display.innerHTML = '';
-            }
-        }
+可靜的才能不僅體現在學術上，她「研究型(I)」與「社會型(S)」兼備的人格特質 ，更體現在她對社會的關懷與服務上。她擔任本校「社會服務社」社長 ，主動為台灣關愛基金會及流浪動物之家籌辦慈善募款活動 ；並利用返台期間，在貴校附設醫院擔任學生志工，累積了內科、神經外科與兒童加護病房共68小時的服務時數 。她更期許未來能運用自己流利的中、越、英三語能力 ，為台灣的病患與越南新住民服務 ，這份源自她自身成長背景的同理心與胸懷，令人動容。
 
-        // 監聽下拉選單的變更事件
-        selector.addEventListener('change', updateContent);
+綜合可靜的學業成就、科研熱忱與服務精神，我深信她已具備成為一名優秀醫師所需的理性思維與人文關懷。她生長於越南的特殊背景 ，賦予了她獨特的跨文化視野；而她面對挑戰從不退縮的毅力，更證明了她有足夠的抗壓力去應對未來醫學之路的重重考驗。她不僅嚮往貴系頂尖的教學資源 ，其特質也與貴系追求「人文」與「科學」的核心價值高度契合 。
 
-        // 頁面載入時，立即呼叫一次以確保初始狀態為空
-        document.addEventListener('DOMContentLoaded', updateContent);
-    </script>
+在此，我毫不猶豫地向您們推薦王可靜同學。她是我校的驕傲，也必定能為貴系帶來正向的貢獻，並在貴系的培育下，實現她守護生命的遠大志向。
 
+敬頌
+道祺
+
+越南胡志明市臺灣學校 校長
+莫恒中 敬上
+
+中華民國114年8月8日`;
+
+    const template2 = `主任、各位評審教授 您們好：
+
+本人為越南胡志明市台灣學校校長，王可靜同學在本校就讀期間，本人親自見證其在學業、研究與服務學習等多方面之傑出表現。
+
+可靜自小在越南成長，卻始終保持高度的學習自律與目標導向，面對海外僑校資源有限的挑戰，她善用線上學習資源與AI工具，自主補足各學科內容，從未因環境而自限。她在校內外各項科學研究競賽與小論文比賽屢獲佳績，其中更曾獲得全國科學探究競賽全國第一名，以及旺宏科學獎、自主學習成果發表等多項殊榮，展現出極強的探究精神與科學素養。
+
+在學業成績方面，可靜歷年段考多次榮獲年級第一，學期平均成績皆維持類排第一名的頂尖水準，理、化、生物與語文能力俱佳，尤以英語、越南語與中文三語並用，並取得英檢金色證書，展現其語言能力與國際視野。她亦具備極佳的時間管理與自我規劃能力，能兼顧課業、研究與志工服務，充分體現了自主學習與高效執行力。
+
+除學術能力外，可靜在人際互動與服務學習方面同樣表現突出。她長期擔任班級與社團幹部，主動策劃校內外公益活動，並利用返台期間積極於台大醫院內科、神經外科及兒科擔任學生志工，累積近百小時服務時數，從中培養出關懷他人、體察病患需求之人文素養。她總是以謙遜踏實的態度面對挑戰，並樂於協助同儕，是師長與同學一致肯定的學習典範。
+
+在與可靜面談與觀察中，我深信她擁有堅定的醫學志向與強烈的使命感，並且結合理性思辨與人文關懷，正與臺灣大學醫學系所強調之「科學專業與人文精神並重」核心價值高度契合。我深信，可靜未來定能在臺大醫學系豐富的教學資源與多元學術環境中，如魚得水，更進一步實踐其以專業回饋社會、服務病患的志業。
+
+謹以最誠摯之心，推薦王可靜同學申請貴系，懇請各位教授給予其進一步實現理想之機會。
+
+謹此推薦，敬祝
+
+道祺
+
+越南胡志明市台灣學校 校長
+
+莫恒中 敬上  
+中華民國 114 年 9 月 8 日`;
+
+    templateSelect.addEventListener('change', function() {
+      const value = this.value;
+      if (value === 'template1') {
+        contentDiv.textContent = template1;
+      } else if (value === 'template2') {
+        contentDiv.textContent = template2;
+      } else if (value === 'download') {
+        window.location.href = '空白學校推薦函.pdf';
+      } else {
+        contentDiv.textContent = '師長推薦書：推薦學校應盡力以中文或英文敘明學校特色、整體學生之學業表現、所推薦學生具備之特質與才能，及其為何適合進入申請就讀之學系，以利學系能更深入瞭解。';
+      }
+    });
+  </script>
 </body>
 </html>
